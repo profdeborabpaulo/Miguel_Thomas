@@ -9,7 +9,7 @@ export default function HomeScreen(){
     "Criar a primeira tela",
   ]);
 
-  function adicionar(){
+  function adicionarTarefa(){
     if(!tarefa.trim()){
       setTarefas([...tarefas, tarefa]);
       setTarefa('');
@@ -24,6 +24,14 @@ export default function HomeScreen(){
         style={styles.input}
         placeholder='Digite uma tarefa'
       />
+      {tarefas.map((item, index)=>
+        <Text
+          key={index}
+          style={styles.item}
+        >
+          .{item}
+        </Text>
+    )}
     </View>
   );
 }
@@ -43,5 +51,9 @@ export default function HomeScreen(){
       borderColor: "#ccc",
       borderRadius: 8,
       padding: 12,
+    },
+    item:{
+      fontSize: 16,
+      marginTop: 10,
     },
   })
